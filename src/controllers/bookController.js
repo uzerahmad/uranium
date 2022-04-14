@@ -20,15 +20,15 @@ const createBook = async function (req, res) {
 //     let Getyear = await BookModel.find().select({bookName:1})
 //     res.send(Getyear)
 // }
-const getBooksData = async function(req,res){
-    let pricedata = await BookModel.find({"prices.indianPrice":{$in:["Rs 100","Rs 200","Rs 500"]}})
-    res.send(pricedata)
+// const getBooksData = async function(req,res){
+//     let pricedata = await BookModel.find({"prices.indianPrice":{$in:["Rs 100","Rs 200","Rs 500"]}})
+//     res.send(pricedata)
 
- }
-// const getBooksData = async function (req,res){
-//     let allBooks = await BookModel.find({$or:[{stockAvailable: true} , {totalePages: {$gt: 500 }]})
-//     res.send({ msg: allBooks })
+//  }
+const getBooksData = async function (req,res){
+    let allBooks = await BookModel.find({$or:[{stockAvailable: true} , {totalePages: {$gt: 500 }}]})
+    res.send({ msg: allBooks })
 
-// }
+}
 module.exports.createBook = createBook
 module.exports.getBooksData = getBooksData
